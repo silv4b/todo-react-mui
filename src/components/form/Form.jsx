@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { TextField, Button, Paper } from '@mui/material'
 
 export default function Form({ handlerAddTodo }) {
@@ -13,7 +13,7 @@ export default function Form({ handlerAddTodo }) {
     setText('');
   };
 
-  const handleInputKeyDown = useCallback((evt) => {
+  const handleInputKeyDown = (evt) => {
     if (evt.key === 'Enter') {
       if (evt.target.value.trim().length === 0 ) return;
       todoCreate(evt.target.value);
@@ -21,7 +21,7 @@ export default function Form({ handlerAddTodo }) {
       setText(evt.target.value);
 
     }
-  }, [todoCreate]);
+  };
 
   return (
     <Paper style={{padding: "1em"}}>
