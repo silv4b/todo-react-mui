@@ -15,6 +15,16 @@ export default function Home() {
     setTodos(filtered);
   };
 
+  const handleEditTodo = (id, newtext) => {
+    var arrayTmp = [...todos]; // spread operator
+
+    for (var t in arrayTmp) {
+      if (arrayTmp[t].id === id) {
+        arrayTmp[t].text = newtext;
+      }
+    }
+  };
+
   return (
     <Container maxWidth="xs" style={{ marginTop: "1em" }}>
       <Form handlerAddTodo={handlerAddTodo} />
@@ -27,7 +37,11 @@ export default function Home() {
                 marginTop: "1em",
               }}
             >
-              <TodoItem todo={todo} handlerDeleteTodo={handlerDeleteTodo} />
+              <TodoItem
+                todo={todo}
+                handleEditTodo={handleEditTodo}
+                handlerDeleteTodo={handlerDeleteTodo}
+              />
             </div>
           );
         })}

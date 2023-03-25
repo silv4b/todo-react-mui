@@ -5,7 +5,7 @@ export default function Form({ handlerAddTodo }) {
   const [text, setText] = useState("");
   const [id, setId] = useState(0);
 
-  const todoCreate = (text) => {
+  const handleCreate = (text) => {
     if (text.trim().length === 0) return;
     const todoObj = { text: text, id: id };
     setId(id + 1);
@@ -16,9 +16,8 @@ export default function Form({ handlerAddTodo }) {
   const handleInputKeyDown = (evt) => {
     if (evt.key === "Enter") {
       if (evt.target.value.trim().length === 0) return;
-      todoCreate(evt.target.value);
-      evt.target.value = "";
-      setText(evt.target.value);
+      handleCreate(evt.target.value);
+      setText("");
     }
   };
 
@@ -37,7 +36,7 @@ export default function Form({ handlerAddTodo }) {
         <Button
           variant="text"
           onClick={() => {
-            todoCreate(text);
+            handleCreate(text);
           }}
         >
           ADD
