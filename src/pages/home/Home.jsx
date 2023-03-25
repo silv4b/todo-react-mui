@@ -17,18 +17,21 @@ export default function Home() {
 
   return (
     <Container maxWidth="xs" style={{ marginTop: "1em" }}>
-      <Form
-        handlerAddTodo={handlerAddTodo}
-      />
+      <Form handlerAddTodo={handlerAddTodo} />
       <List>
         {todos.map((todo) => {
           return (
-            <div key={todo.id} style={{marginTop: "1em"}}>
+            <div
+              key={todo.id}
+              style={{
+                marginTop: "1em",
+              }}
+            >
               <TodoItem todo={todo} handlerDeleteTodo={handlerDeleteTodo} />
             </div>
-          )
+          );
         })}
       </List>
     </Container>
   );
-};
+}

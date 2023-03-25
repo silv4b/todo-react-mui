@@ -1,31 +1,30 @@
-import React, { useState } from 'react';
-import { TextField, Button, Paper } from '@mui/material'
+import React, { useState } from "react";
+import { TextField, Button, Paper } from "@mui/material";
 
 export default function Form({ handlerAddTodo }) {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const [id, setId] = useState(0);
 
   const todoCreate = (text) => {
     if (text.trim().length === 0) return;
-    const todoObj = {text: text, id: id};
+    const todoObj = { text: text, id: id };
     setId(id + 1);
     handlerAddTodo(todoObj);
-    setText('');
+    setText("");
   };
 
   const handleInputKeyDown = (evt) => {
-    if (evt.key === 'Enter') {
-      if (evt.target.value.trim().length === 0 ) return;
+    if (evt.key === "Enter") {
+      if (evt.target.value.trim().length === 0) return;
       todoCreate(evt.target.value);
-      evt.target.value = '';
+      evt.target.value = "";
       setText(evt.target.value);
-
     }
   };
 
   return (
-    <Paper style={{padding: "1em"}}>
-      <div style={{display: "flex", justifyContent: "center"}}>
+    <Paper style={{ padding: "1em" }}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <TextField
           onChange={(evt) => setText(evt.target.value)}
           onKeyDown={handleInputKeyDown}
@@ -37,11 +36,13 @@ export default function Form({ handlerAddTodo }) {
         />
         <Button
           variant="text"
-          onClick={() => {todoCreate(text)}}
+          onClick={() => {
+            todoCreate(text);
+          }}
         >
           ADD
         </Button>
       </div>
     </Paper>
   );
-};
+}
