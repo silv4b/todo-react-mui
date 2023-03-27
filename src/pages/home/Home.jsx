@@ -6,11 +6,11 @@ import { useState } from "react";
 export default function Home() {
   const [todos, setTodos] = useState([]);
 
-  const handlerAddTodo = (todo) => {
+  const handleAddTodo = (todo) => {
     setTodos([...todos, todo]);
   };
 
-  const handlerDeleteTodo = (id) => {
+  const handleDeleteTodo = (id) => {
     var filtered = todos.filter((todo) => todo.id !== id);
     setTodos(filtered);
   };
@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <Container maxWidth="xs" style={{ marginTop: "1em" }}>
-      <Form handlerAddTodo={handlerAddTodo} />
+      <Form handleAddTodo={handleAddTodo} />
       <List>
         {todos.map((todo) => {
           return (
@@ -40,7 +40,7 @@ export default function Home() {
               <TodoItem
                 todo={todo}
                 handleEditTodo={handleEditTodo}
-                handlerDeleteTodo={handlerDeleteTodo}
+                handleDeleteTodo={handleDeleteTodo}
               />
             </div>
           );

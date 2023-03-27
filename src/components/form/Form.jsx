@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Button, Paper } from "@mui/material";
 
-export default function Form({ handlerAddTodo }) {
+export default function Form({ handleAddTodo }) {
   const [text, setText] = useState("");
   const [id, setId] = useState(0);
 
@@ -9,7 +9,7 @@ export default function Form({ handlerAddTodo }) {
     if (text.trim().length === 0) return;
     const todoObj = { text: text, id: id };
     setId(id + 1);
-    handlerAddTodo(todoObj);
+    handleAddTodo(todoObj);
     setText("");
   };
 

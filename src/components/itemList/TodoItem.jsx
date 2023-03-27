@@ -8,8 +8,9 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Paper } from "@mui/material";
 import EditTodoDialog from "../editDialog/EditTodoDialog";
+import ConfirmationDialog from "../confirmationDialog/ConfirmationDialog";
 
-export default function TodoItem({ todo, handleEditTodo, handlerDeleteTodo }) {
+export default function TodoItem({ todo, handleEditTodo, handleDeleteTodo }) {
   const [openDialog, setOpenDialog] = useState(false);
 
   const handleDialog = () => {
@@ -24,6 +25,14 @@ export default function TodoItem({ todo, handleEditTodo, handlerDeleteTodo }) {
         handleEditTodo={handleEditTodo}
         todo={todo}
       />
+
+      <ConfirmationDialog
+      // openCDialog={openCDialog}
+      // handleDeleteDialog={handleDeleteDialog}
+      // handleDeleteTodo={handleDeleteTodo}
+      // todo={todo}
+      />
+
       <Paper style={{ padding: "0.5em 0em" }}>
         <ListItem
           secondaryAction={
@@ -31,7 +40,7 @@ export default function TodoItem({ todo, handleEditTodo, handlerDeleteTodo }) {
               edge="end"
               aria-label="delete"
               onClick={() => {
-                handlerDeleteTodo(todo.id);
+                setOpenDialog(true);
               }}
             >
               <DeleteIcon />
