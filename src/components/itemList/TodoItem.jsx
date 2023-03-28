@@ -1,12 +1,15 @@
 import { useState } from "react";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import Checkbox from "@mui/material/Checkbox";
-import IconButton from "@mui/material/IconButton";
+import {
+  Paper,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Checkbox,
+  IconButton,
+} from "@mui/material";
+
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Paper } from "@mui/material";
 import EditTodoDialog from "../editDialog/EditTodoDialog";
 import ConfirmationDialog from "../confirmationDialog/ConfirmationDialog";
 
