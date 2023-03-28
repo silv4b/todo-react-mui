@@ -12,9 +12,14 @@ import ConfirmationDialog from "../confirmationDialog/ConfirmationDialog";
 
 export default function TodoItem({ todo, handleEditTodo, handleDeleteTodo }) {
   const [openDialog, setOpenDialog] = useState(false);
+  const [openDelDialog, setOpenDelDialog] = useState(false);
 
   const handleDialog = () => {
     setOpenDialog(!openDialog);
+  };
+
+  const handleDelDialog = () => {
+    setOpenDelDialog(!openDelDialog);
   };
 
   return (
@@ -27,10 +32,10 @@ export default function TodoItem({ todo, handleEditTodo, handleDeleteTodo }) {
       />
 
       <ConfirmationDialog
-      // openCDialog={openCDialog}
-      // handleDeleteDialog={handleDeleteDialog}
-      // handleDeleteTodo={handleDeleteTodo}
-      // todo={todo}
+        openDelDialog={openDelDialog}
+        handleDelDialog={handleDelDialog}
+        handleDeleteTodo={handleDeleteTodo}
+        todo={todo}
       />
 
       <Paper style={{ padding: "0.5em 0em" }}>
@@ -40,7 +45,7 @@ export default function TodoItem({ todo, handleEditTodo, handleDeleteTodo }) {
               edge="end"
               aria-label="delete"
               onClick={() => {
-                setOpenDialog(true);
+                setOpenDelDialog(true);
               }}
             >
               <DeleteIcon />
